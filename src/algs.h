@@ -30,7 +30,7 @@ bool are_anagrams(std::string a, std::string b) {
         return false;
     }
 
-    const int k = 26; 
+    const int k = 26; // Assuming characters 'A' to 'Z'
 
     std::array<int, k> charCount = {0};
 
@@ -40,7 +40,7 @@ bool are_anagrams(std::string a, std::string b) {
 
     for (char c : b) {
         if (--charCount[c - 'A'] < 0) {
-            return false;  
+            return false;  // More occurrences of 'c' in b than in a
         }
     }
 

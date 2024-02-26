@@ -75,13 +75,14 @@ bool has_duplicate_val(BST_Node<T>* root) {
 template<typename T>
 bool dup_val_helper(BST_Node<T>* root, std::unordered_set<T>& visited_values) {
     if (root == nullptr) {
-        return false;  
+        return false;  // No duplicates in an empty tree
     }
 
     if (!visited_values.insert(root->val).second) {
-        return true;  
+        return true;  // Duplicate found
     }
 
+    // Check left and right subtrees for duplicates
     return dup_val_helper(root->left, visited_values) ||
            dup_val_helper(root->right, visited_values);
 }
